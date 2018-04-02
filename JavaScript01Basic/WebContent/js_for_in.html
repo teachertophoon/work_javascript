@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Insert title here</title>
+</head>
+<body>
+
+	<script>
+		var myCar = {
+				make: "BMW",
+				model: "X5",
+				year: 2013
+		};
+		var txt = "";
+		
+		// for/in 루프: Java의 Map 컬렉션에서 keySet()을 이용하는 방법과 동일
+		/*
+			Map<String, Object> myCar = new HashMap<>();
+			String txt = "";
+			
+			myCar.put("make", "BMW");
+			myCar.put("model", "X5");
+			myCar.put("year", 2013);
+			
+			for (String x : myCar.keySet()) {
+				txt += myCar.get(x) + " ";
+			}
+			
+			System.out.println(txt);
+		*/
+		for (var x in myCar) {
+			txt += myCar[x] + " ";
+		}
+		
+		document.write(txt);
+	</script>
+</body>
+</html>

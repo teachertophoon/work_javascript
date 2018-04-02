@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Insert title here</title>
+</head>
+<body>
+	<h1 id="test">This is a heading.</h1>
+	<button type="button" onclick="func()">클릭하세요!</button>
+	<script>
+		function func() {
+			e = document.getElementById("test");
+			
+			/*
+				<style>
+					#test {
+						color: red;
+					}
+				</style>
+			*/
+			e.style.color = "red";	// id가 "test"인 요소의 style 속성을 변경
+		}
+	</script>
+</body>
+</html>
