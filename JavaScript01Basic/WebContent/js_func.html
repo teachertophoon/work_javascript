@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Insert title here</title>
+</head>
+<body>
+
+	<button onclick="showDialog()">대화상자오픈</button>
+	<button onclick="greeting('홍길동', '부장', '서울시')">눌러보세요!</button>
+	<button onclick="greeting('홍길동', '부장')">눌러보세요!</button>
+	<button onclick="greeting('홍길동')">눌러보세요!</button>
+
+	<script>
+		function showDialog() {	//	함수라고 부른다.
+			window.alert("안녕하세요?");	// alert 메소드라고 부른다.
+		}
+		
+		/* function greeting(name, position, address) {
+			
+			// arguments: 내장객체 (함수 내부에서 사용가능)
+			if (arguments.length == 1) {
+				alert(name + "님을 환영합니다.");
+			}
+			else if (arguments.length == 2) {
+				alert(name + " " + position + "님을 환영합니다.");
+			}
+			else if (arguments.length == 3) {
+				alert(name + " " + position + " " + address + "님을 환영합니다.");
+			}
+		} */
+		
+		function greeting() {
+			
+			// arguments: 내장객체 (함수 내부에서 사용가능)
+			if (arguments.length == 1) {
+				alert(arguments[0] + "님을 환영합니다.");
+			}
+			else if (arguments.length == 2) {
+				alert(arguments[0] + " " + arguments[1] + "님을 환영합니다.");
+			}
+			else if (arguments.length == 3) {
+				alert(arguments[0] + " " + arguments[1] + " " + arguments[2] + "님을 환영합니다.");
+			}
+		}
+		
+		// 무명 함수 (anonymous function)
+		var anonymous = function() {
+			alert("무명함수1 호출");
+		};
+		anonymous();
+		
+		(function() {
+			alert("무명함수2 호출");
+		})();
+		
+		// 함수의 반환값(return)
+		function sub() {
+			var x;
+			x = 1;
+			return x;
+		}
+		var value = sub();
+		alert(value);
+	</script>
+</body>
+</html>
+
+
+
+
+

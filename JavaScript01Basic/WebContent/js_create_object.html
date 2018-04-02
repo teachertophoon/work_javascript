@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Insert title here</title>
+</head>
+<body>
+
+	<script>
+		// 1. 객체 상수로부터 객체 생성(JSON: JavaScript Object Notation)
+		/*
+			myCar: 객체 상수 (객체를 담은 상수)
+			아래와 같은 객체를 싱글톤(singleton)이라고 부른다.
+		*/
+		var myCar = {
+			model: "520d",
+			speed: 60,
+			color: "red",
+			brake: function() { this.speed -= 10; },
+			accel: function() { this.speed += 10; }
+		};
+		
+		myCar.color = "yellow";	// setter (속성(Property)값 변경) 
+		myCar.brake();			// 객체에 있는 메소드 호출
+		
+		// 2. 생성자 함수를 이용한 객체 생성
+		function Car(model, speed, color) {
+			this.model = model;
+			this.speed = speed;
+			this.color = color;
+			this.brake = function() { this.speed -= 10; };
+			this.accel = function() { this.speed += 10; };
+		}
+		
+		var myCar01 = new Car("520d", 60, "white");
+		myCar01.color = "yellow";
+		myCar01.brake();
+		
+		var myCar02 = new Car("모닝", 40, "red");
+		myCar02.color = "blue";
+		myCar02.brake();
+		
+		// myCar
+		document.write("모델: " + myCar.model + " 속도: " + myCar.speed 
+				+ " 색상: " + myCar.color + "<br>");
+		myCar.accel();
+		document.write("모델: " + myCar.model + " 속도: " + myCar.speed 
+				+ " 색상: " + myCar.color + "<br>");
+		myCar.brake();
+		document.write("모델: " + myCar.model + " 속도: " + myCar.speed 
+				+ " 색상: " + myCar.color + "<br>");
+		
+		// myCar01
+		document.write("모델: " + myCar01.model + " 속도: " + myCar01.speed 
+				+ " 색상: " + myCar01.color + "<br>");
+		myCar01.accel();
+		document.write("모델: " + myCar01.model + " 속도: " + myCar01.speed 
+				+ " 색상: " + myCar01.color + "<br>");
+		myCar01.brake();
+		document.write("모델: " + myCar01.model + " 속도: " + myCar01.speed 
+				+ " 색상: " + myCar01.color + "<br>");
+		
+		// myCar01 객체에 turbo 속성(Property)와 showModel 메소드를 추가
+		myCar01.turbo = true;
+		myCar01.showModel = function() {
+			alert("모델은 " + this.model + "입니다. 터보: " + this.turbo);
+		}
+		
+		myCar01.showModel();
+		
+	</script>
+</body>
+
+
+
+
+
+
+</html>

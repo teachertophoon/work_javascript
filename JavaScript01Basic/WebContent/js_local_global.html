@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Insert title here</title>
+</head>
+<body>
+
+	<script>
+		// 전역변수 (global variable): 브라우저 종료시 소멸
+		var globalVar = 10;
+		
+		function add(a, b) {
+			// 지역변수 (local variable): 해당 함수가 실행이 끝나면 소멸
+			var sum = 0;
+			
+			sum = a + b;
+			return sum;
+		}
+		
+		console.log(add(10, 20));
+		console.log(globalVar);
+		console.log(sum);		// 접근 불가
+	</script>
+</body>
+</html>

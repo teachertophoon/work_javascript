@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Insert title here</title>
+</head>
+<body>
+
+	<script>
+		var count1, count2;
+		count1 = new Number(1.237);
+		count2 = 1.238;
+		console.log(typeof count1);
+		console.log(typeof count2);
+		
+		if (count1.toFixed(2) === count2.toFixed(2)) {
+			alert("소수점 2째 짜리까지 같습니다.");
+			console.log(typeof count1.toFixed(2));
+			console.log(typeof count2.toFixed(2));
+		}
+		
+		var count3 = "2.52";
+		var count4 = 2.52;
+		
+		// 값만 같은 경우: true
+		if (count3 == count4) {
+			console.log("두 변수의 값은 같다.");
+		}
+		else {
+			console.log("두 변수의 값은 다르다.");
+		}
+		
+		// 값과 타입이 같은 경우: true
+		if (count3 === count4) {
+			console.log("두 변수의 값과 타입은 같다.");
+		}
+		else {
+			console.log("두 변수의 값 혹은 타입은 다르다.");
+		}
+		
+		// 값 혹은 타입이 다른 경우: true
+		if (count3 !== count4) {
+			console.log("두 변수의 값 혹은 타입은 다르다.");
+		}
+		else {
+			console.log("두 변수의 값과 타입은 같다.");
+		}
+	</script>
+</body>
+</html>
+
+

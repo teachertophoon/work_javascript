@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Insert title here</title>
+</head>
+<body>
+
+	<form name="myForm">
+		<div>필드1 <input type="text" name="a0"></div>
+		<div>필드2 <input type="text" name="a1"></div>
+		<div>필드3 <input type="text" name="a2"></div>
+		<input type="button" value="초기화" onclick="init();">
+	</form>
+	
+	<script>
+		function init() {
+			for (var i = 0; i < 3; i++) {
+				/*
+					HTML 요소(앨리먼트)의 이름은 키와 같다.
+					따라서 연관 배열 형식으로 접근할 수 있다.
+				*/
+				document.myForm["a" + i].value = i;
+			}
+		}
+	</script>
+
+</body>
+</html>
