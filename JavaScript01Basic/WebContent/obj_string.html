@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Insert title here</title>
+</head>
+<body>
+	<script>
+		// length: 문자열 길이
+		var s1 = "aaa";
+		console.log(s1.length);
+		
+		// toUpperCase(): 대문자로 치환, toLowerCase(): 소문자로 치환
+		var s2 = "aBcDeF";
+		console.log(s2.toUpperCase());
+		console.log(s2.toLowerCase());
+		
+		// concat(): 문자열 붙이기
+		var s3 = "문자열 1 ";
+		var s4 = "문자열 2 ";
+		console.log(s3.concat(s4));
+		
+		// indexOf(): 문자열 검색 - 주어진 텍스트가 처음 등장하는 위치를 반환
+		var s5 = "자바스크립트에 오신 것을 환영합니다.";
+		console.log(s5.indexOf("환영"));
+		
+		// match(): 문자열 매칭 - match 메소드의 인자값으로 정규식을 사용
+		var s6 = 'Like father, like son.';
+		// like를 찾는다. i와 g는 옵션으로 insensitive, globally를 의미한다.
+		var result = s6.match(/like/ig);
+		console.log(result);
+		
+		// replace(): 문자열 대체
+		var s7 = "Hong's number is 123-4567.";
+		console.log(s7.replace("Hong's", "Kim's"));
+		
+		// split(): delimeter(분리자)를 이용하여 문자열을 배열로 변환
+		var s8 = "One|Two|Three|Four|Five";
+		result = s8.split('|');
+		for (var i = 0; i < result.length; i++) {
+			console.log(i + '-' + result[i] + "<br>");
+		}
+		
+	</script>
+</body>
+</html>
+
+
+
