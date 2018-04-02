@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Insert title here</title>
+</head>
+<body>
+	
+	<script>
+		var myArray = new Array();
+		myArray[0] = "apple";
+		myArray[99] = "banana";
+		
+		for (var i = 0; i < myArray.length; i++) {
+			console.log(myArray[i]);
+		}
+		
+		// concat()
+		var x = [1, 2, 3];
+		var y = [4, 5, 6];
+		var joined = x.concat(y);
+		console.log(x);
+		console.log(joined);
+		
+		// indexOf()
+		var fruits = ["apple", "banana", "grape"];
+		console.log(fruits.indexOf("banana"));
+		
+		// Stack: push(), pop()
+		var numbers = [1, 2, 3, 4, 5];
+		numbers.push(6);
+		console.log(numbers);
+		var item = numbers.pop();
+		console.log('item: ' + item);
+		console.log(numbers);
+		
+		// Queue: shift();
+		numbers = [1, 2, 3, 4, 5, 6, 7];
+		item = numbers.shift();
+		console.log('item: ' + item);
+		console.log(numbers);
+		numbers.push(10);
+		console.log(numbers);
+		item = numbers.shift();
+		console.log('item: ' + item);
+		
+	</script>
+</body>
+</html>
+
+
+

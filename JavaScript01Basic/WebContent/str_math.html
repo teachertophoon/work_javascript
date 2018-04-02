@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Insert title here</title>
+</head>
+<body>
+	<form name="calculator">
+		<div>입력: <input type="text" name="number1"></div>
+		<div>계산결과: <input type="text" name="total"></div>
+		<input type="button" value="SIN" onclick="calc(1);">
+		<input type="button" value="LOG" onclick="calc(2);">
+		<input type="button" value="SQRT" onclick="calc(3);">
+		<input type="button" value="ABS" onclick="calc(4);">
+	</form>
+	
+	<script>
+		function calc(type) {
+			var x = new Number(document.calculator.number1.value);
+			var y;
+			if (type == 1) {
+				y = Math.sin((x * Math.PI) / 180.0);
+				
+			} else if (type == 2) {
+				y = Math.log(x);
+				
+			} else if (type == 3) {
+				y = Math.sqrt(x);
+				
+			} else if (type == 4) {
+				y = Math.abs(x);
+			}
+			
+			document.calculator.total.value = y;
+		}
+	</script>
+</body>
+</html>
+
