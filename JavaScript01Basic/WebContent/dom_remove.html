@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Insert title here</title>
+</head>
+<body>
+	<div id="target">
+		<p id="p1">첫 번째 단락</p>
+		<p id="p2">두 번째 단락</p>
+	</div>
+	<button onclick="removeNode()">누르세요</button>
+	
+	<script>
+		function removeNode() {
+			var parent = document.getElementById("target");
+			var child = document.getElementById("p1");
+			parent.removeChild(child);
+		}
+	</script>
+</body>
+</html>

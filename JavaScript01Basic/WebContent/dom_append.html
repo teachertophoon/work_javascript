@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Insert title here</title>
+</head>
+<body>
+	<div id="target" onclick="addtext('동적으로 텍스트가 추가됩니다.')"
+		style="font: 20px bold;">여기를 클릭하세요.</div>
+		
+	<script>
+		function addtext(t) {
+			if (document.createTextNode) {	// 이 기능이 지원되는지 검사
+				var node = document.createTextNode(t);	// 노드 생성
+				document.getElementById("target").appendChild(node); // 노드 추가
+			}
+		}
+	</script>
+</body>
+</html>
