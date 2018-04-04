@@ -60,25 +60,15 @@
 				// isNotEmpty 함수를 호출하고 난 결과를 case01 변수에 담는다.
 				var case01 = isNotEmpty('name', '이름을 입력하시오!');
 				
+				// isChecked 함수를 호출하고 난 결과를 case02 변수에 담는다.
+				var case02 = isChecked('gender', '성별을 체크하시오!');
+				
 				// 변수 값을 리턴한다. false이면 제출 버튼 기본동작을 막고, true이면 기본동작 실행
-				return case01;
+				return case01 && case02;
 			};
 		};
 		
-		// 입력 값이 비어 있지 않으면 true를 리턴한다.
-		function isNotEmpty(inputId, errorMsg) {
-			// inputId 문자열에 해당하는 id값을 가지는 앨리먼트를 객체로 가져온다.
-			var inputElement = document.getElementById(inputId);
-			
-			// inputId 문자열 + "Error" 문자열에 해당하는 id값을 가지는 앨리먼트를 객체로 가져온다.
-			var errorElement = document.getElementById(inputId + "Error");
-			
-			// 입력받은 값에서 공백을 제거하여 inputValue 지역변수에 담는다.
-			var inputValue = inputElement.value.trim();
-			
-			// inputValue 값의 길이를 확인하고 0이면 입력하지 않은 것이니 false값을 isValid에 담는다.
-			var isValid = (inputValue.length != 0);
-			
+		function showMessage(isValid, inputElement, errorMsg, errorElement) {
 			// 공백일 경우
 			if (!isValid) {
 				// 에러 메시지를 표시하는 영역이 존재하면
@@ -100,9 +90,54 @@
 					errorElement.innerHTML = "";
 				}
 			}
+		}
+		
+		// 입력 값이 비어 있지 않으면 true를 리턴한다.
+		function isNotEmpty(inputId, errorMsg) {
+			// inputId 문자열에 해당하는 id값을 가지는 앨리먼트를 객체로 가져온다.
+			var inputElement = document.getElementById(inputId);
+			
+			// inputId 문자열 + "Error" 문자열에 해당하는 id값을 가지는 앨리먼트를 객체로 가져온다.
+			var errorElement = document.getElementById(inputId + "Error");
+			
+			// 입력받은 값에서 공백을 제거하여 inputValue 지역변수에 담는다.
+			var inputValue = inputElement.value.trim();
+			
+			// inputValue 값의 길이를 확인하고 0이면 입력하지 않은 것이니 false값을 isValid에 담는다.
+			var isValid = (inputValue.length != 0);
+			
+			showMessage(isValid, inputElement, errorMsg, errorElement);
 			
 			// 공백이면 false, 공백이 아니면 true를 리턴한다. (isValid 값 리턴)
 			return isValid;
+		}
+		
+		// 체크 박스가 체크되었는지를 검사한다.
+		function isChecked(inputName, errorMsg) {
+			/*
+				inputName 문자열을 name 속성으로 가지는 앨리먼트들을 가져온다.
+				라디오 버튼이 2개이기 때문에 Name 속성으로 가져온다.
+			*/
+			var inputElements = document.getElementsByName(inputName);
+			
+			// inputName 문자열 + Error id값을 가지는 앨리먼트를 가져온다.
+			var errorElement = document.getElementById(inputName + "Error");
+			
+			// 라디오 버튼 중 하나가 체크 되었는지 여부를 저장하는 변수 선언 및 초기화
+			var isChecked = false;
+			
+			// 라디오 버튼 개수만큼 for문을 반복
+			for (var i = 0; i < inputElements.length; i++) {
+				if (inputElements[i].checked) {
+					// 하나라도 체크되었다면 체크된 것으로 판단하고 for문 종료
+					isChecked = true;	
+					break;
+				}
+			}
+			showMessage(isChecked, null, errorMsg, errorElement);
+			
+			// 라디오 버튼 중 하나가 체크되었다면 true, 아니면 false
+			return isChecked;
 		}
 		
 	</script>
