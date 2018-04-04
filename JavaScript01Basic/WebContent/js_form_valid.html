@@ -51,5 +51,60 @@
 			</tr>
 		</table>
 	</form>
+	
+	<script>
+		// 페이지가 로드되면 호출되는 함수 (onload 이벤트 사용)
+		window.onload = function() {
+			document.getElementById("formJoin").onsubmit = function() {
+				
+				// isNotEmpty 함수를 호출하고 난 결과를 case01 변수에 담는다.
+				var case01 = isNotEmpty('name', '이름을 입력하시오!');
+				
+				// 변수 값을 리턴한다. false이면 제출 버튼 기본동작을 막고, true이면 기본동작 실행
+				return case01;
+			};
+		};
+		
+		// 입력 값이 비어 있지 않으면 true를 리턴한다.
+		function isNotEmpty(inputId, errorMsg) {
+			// inputId 문자열에 해당하는 id값을 가지는 앨리먼트를 객체로 가져온다.
+			var inputElement = document.getElementById(inputId);
+			
+			// inputId 문자열 + "Error" 문자열에 해당하는 id값을 가지는 앨리먼트를 객체로 가져온다.
+			var errorElement = document.getElementById(inputId + "Error");
+			
+			// 입력받은 값에서 공백을 제거하여 inputValue 지역변수에 담는다.
+			var inputValue = inputElement.value.trim();
+			
+			// inputValue 값의 길이를 확인하고 0이면 입력하지 않은 것이니 false값을 isValid에 담는다.
+			var isValid = (inputValue.length != 0);
+			
+			// 공백일 경우
+			if (!isValid) {
+				// 에러 메시지를 표시하는 영역이 존재하면
+				if (errorElement != null) {
+					// 에러 메시지 표시하는 영역에 오류 메시지를 적는다.
+					errorElement.innerHTML = errorMsg;
+				}
+				// 입력받는 앨리먼트가 존재하면
+				if (inputElement != null) {
+					// 입력받는 앨리먼트에 포커스를 준다.
+					inputElement.focus();
+				}
+			
+			// 공백이 아닐 경우
+			} else {
+				// 에러 메시지를 표시하는 영역이 존재하면
+				if (errorElement != null) {
+					// 기존에 출력됐던 에러메시지를 지운다.
+					errorElement.innerHTML = "";
+				}
+			}
+			
+			// 공백이면 false, 공백이 아니면 true를 리턴한다. (isValid 값 리턴)
+			return isValid;
+		}
+		
+	</script>
 </body>
 </html>
