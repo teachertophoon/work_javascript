@@ -63,17 +63,16 @@
 				// isChecked 함수를 호출하고 난 결과를 case02 변수에 담는다.
 				var case02 = isChecked('gender', '성별을 체크하시오!');
 				
-<<<<<<< HEAD
 				var case03 = isNumeric('phone', '올바른 전화번호를 입력하시오!');
 				
-=======
->>>>>>> branch 'master' of https://github.com/teachertophoon/work_javascript.git
+				var case04 = isValidEmail('email', '올바른 이메일을 입력하시오!');
+				
+				// 패스워드의 길이가 6이상 8이하일 경우에 true 리턴, 아니면 false
+				var case05 = isLengthMinMax('password', '패스워드 허용길이 범위를 벗어났습니다!',
+							6, 8);
+				
 				// 변수 값을 리턴한다. false이면 제출 버튼 기본동작을 막고, true이면 기본동작 실행
-<<<<<<< HEAD
-				return case01 && case02 && case03;
-=======
-				return case01 && case02;
->>>>>>> branch 'master' of https://github.com/teachertophoon/work_javascript.git
+				return case01 && case02 && case03 && case04 && case05;
 			};
 		};
 		
@@ -170,6 +169,32 @@
 			showMessage(isValid, inputElement, errorMsg, errorElement);
 			
 			// 숫자로만 이루어져 있다면 true, 아니면 false
+			return isValid;
+		}
+		
+		// 유효한 이메일 주소인지를 검증
+		function isValidEmail(inputId, errorMsg) {
+			var inputElement = document.getElementById(inputId);
+			var errorElement = document.getElementById(inputId + "Error");
+			var inputValue = inputElement.value;
+			var isValid = inputValue.match(/^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9_\-])+\.)+([a-zA-Z0-9]{2,})+$/);
+			showMessage(isValid, inputElement, errorMsg, errorElement);
+			return isValid;
+		}
+		
+		// 입력의 길이가 minLength와 maxLength 사이에 있으면 true 리턴
+		function isLengthMinMax(inputId, errorMsg, minLength, maxLength) {
+			var inputElement = document.getElementById(inputId);
+			var errorElement = document.getElementById(inputId + "Error");
+			var inputValue = inputElement.value.trim();
+			
+			/*
+				inputValue의 길이가 minLength 값 이상, maxLength 값 이하일
+				경우는 true 아니면 false
+			*/
+			var isValid = (inputValue.length >= minLength)
+						&& (inputValue.length <= maxLength);
+			showMessage(isValid, inputElement, errorMsg, errorElement);
 			return isValid;
 		}
 	</script>
