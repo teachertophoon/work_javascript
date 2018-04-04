@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Insert title here</title>
+</head>
+<body>
+	<h2>회원 신청서</h2>
+	<form action="..." id="formJoin" method="post">
+		<table>
+			<tr>
+				<td>이름*</td>
+				<td><input type="text" id="name" name="name"></td>
+				<td id="nameError"></td>
+			</tr>
+			<tr>
+				<td>성별*</td>
+				<td>
+					<label><input type="radio" name="gender" value="0">남성</label>
+					<label><input type="radio" name="gender" value="1">여성</label>
+				</td>
+				<td id="genderError"></td>
+			</tr>
+			<tr>
+				<td>휴대폰 번호Phone*</td>
+				<td><input type="text" id="phone" name="phone"></td>
+				<td id="phoneError"></td>
+			</tr>
+			<tr>
+				<td>이메일*</td>
+				<td><input type="text" id="email" name="email"></td>
+				<td id="emailError"></td>
+			</tr>
+			<tr>
+				<td>패스워드(6-8 글자)*</td>
+				<td><input type="password" id="password" name="password"></td>
+				<td id="passwordError"></td>
+			</tr>
+			<tr>
+				<td>패스워드 검증*</td>
+				<td><input type="password" id="pwConfirm" name="pwConfirm"></td>
+				<td id="pwConfirmError"></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td>
+					<input type="submit" value="제출">
+					<input type="reset" id="reset" value="지우기">
+				</td>
+				<td></td>
+			</tr>
+		</table>
+	</form>
+</body>
+</html>
