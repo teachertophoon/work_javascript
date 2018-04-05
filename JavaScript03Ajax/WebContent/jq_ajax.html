@@ -7,9 +7,14 @@
 <body>
 	<div id="target"></div>
 	<button id="button1">GET CARS</button>
-	
 	<table id="table1"></table>
-
+	
+	<br>
+	
+	<div>검색할 차량이름: <input type="text" id="carName"></div>
+	<button id="button2">GET CAR</button>
+	<div id="carDetail"></div>
+	
 	<script src="js/jquery-3.3.1.js"></script>
 	<script>
 		$(document).ready(function() {
@@ -39,6 +44,45 @@
 						
 						// 완성된 행 하나를 id값이 table1인 앨리먼트에 추가한다.
 						$("#table1").append(tr);
+					}
+				});
+			});
+			
+			$("#button2").click(function() {
+				/*
+					type: HTTP Method 종류 (get, post, put, delete 등)
+					url: 요청할 url 주소
+					dataType: 응답받을 데이터 타입 (json, xml 등)
+					success: 응답을 성공적으로 받았을 때 실행하는 함수
+					error: 응답 오류가 발생할 경우 실행하는 함수
+					https://api.jquery.com/jQuery.ajax/
+					
+					success 파라미터 설명
+					data: 서버로부터 전달받은 데이터
+					textStatus: 응답 상태를 텍스트 값으로 표현한 값
+					xhr: XMLHttpRequest 객체
+					
+					error 파라미터 설명
+					jqXHR: jQuery XMLHttpRequest
+					textStatus: 응답 상태를 텍스트 값으로 표현한 값
+					errorThrown: 오류 내용을 텍스트 값으로 표현한 값
+								("Not Found", "Internal Server Error." 등)
+				*/
+				$.ajax({
+					type: 'get',
+					url: "http://localhost:8080/Spring19Ajax/car/" + $("#carName").val(),
+					dataType: 'json',
+					success: function(data, textStatus, xhr) {
+						$("#carDetail").text(data.name + " / " + data.number);
+						console.log(JSON.stringify(data));
+						console.log(JSON.stringify(textStatus));
+						console.log(JSON.stringify(xhr));
+					},
+					error: function(jqXHR, textStatus, errorThrown) {
+						alert("button2 실행에 대한 오류 발생");
+						console.log(JSON.stringify(jqXHR));
+						console.log(JSON.stringify(textStatus));
+						console.log(JSON.stringify(errorThrown));
 					}
 				});
 			});
