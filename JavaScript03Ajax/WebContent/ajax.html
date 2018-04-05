@@ -13,7 +13,7 @@
 </head>
 <body>
 	<div id="target"></div>
-	<button type="button"></button>
+	<button type="button" id="button1">GET DATA</button>
 	
 	<script>
 		/*
@@ -21,7 +21,7 @@
 		*/
 		
 		// target 버튼에 onclick 이벤트를 추가한다.
-		document.getElementById("target").onclick = function() {
+		document.getElementById("button1").onclick = function() {
 			// 버튼이 클릭되면 getFromServer() 함수를 실행한다.
 			getFromServer();
 		};
