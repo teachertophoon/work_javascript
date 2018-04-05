@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Insert title here</title>
+</head>
+<body>
+
+	<p id="target">이것은 <strong>하나의</strong> 단락입니다.</p>
+	<button id="text">text()</button>
+	<button id="html">html()</button>
+	
+	<script src="js/jquery-3.3.1.js"></script>
+	<script>
+		$(document).ready(function() {
+			$("#text").click(function() {
+				// target id값을 가지는 앨리먼트의 텍스트만 가져오는 방법
+				alert($("#target").text());
+				$("#target").text("안녕하세요?");
+			});
+			
+			$("#html").click(function() {
+				// target id값을 가지는 앨리먼트의 html 내용까지 가져오는 방법
+				alert($("#target").html());
+				$("#target").html("<b>안녕하세요?</b>");
+			});
+		});
+	</script>
+
+</body>
+</html>

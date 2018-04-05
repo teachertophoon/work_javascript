@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Insert title here</title>
+	<style>
+		div { width: 60px; height: 60px; }
+	</style>
+</head>
+<body>
+	<div id="div1" style="background-color: blue;"></div>
+	<button id="button1">css(element)</button>
+	<button id="button2">css(element,style)</button>
+	<p id="result">여기에 결과가 표시됩니다.</p>
+	
+	<script src="js/jquery-3.3.1.js"></script>
+	<script>
+		$(document).ready(function() {
+			// id가 button1인 버튼을 클릭하면
+			$("#button1").click(function() {
+				// id가 div1인 앨리먼트의 background-color 속성값을 가져온다.
+				var color = $("#div1").css("background-color");
+				
+				// 가져온 속성값을 id가 result인 앨리먼트에 색상값을 출력한다.
+				$("#result").text("background-color: " + color);
+			});
+			
+			// id가 button2인 버튼을 클릭하면
+			$("#button2").click(function() {
+				// id가 div1인 앨리먼트의 배경색을 빨간색으로 변경한다.
+				$("#div1").css("background-color", "red");
+			});
+		});
+	</script>
+</body>
+</html>

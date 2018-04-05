@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Insert title here</title>
+	<style>
+		.warning {
+			border: 1px solid black;
+			background-color: yellow;
+		}
+	</style>
+</head>
+<body>
+	<div id="div1">
+		<p>예제 단락 입니다.</p>
+	</div>
+	<br>
+	<button>addClass()</button>
+	
+	<script src="js/jquery-3.3.1.js"></script>
+	<script>
+		$(document).ready(function() {
+			// button 앨리먼트에 클릭 이벤트를 추가한다.
+			$("button").click(function() {
+				// id가 div1인 앨리먼트에 warning이라는 이름의 css class를 추가한다.
+				$("#div1").addClass("warning");
+			});
+		});
+	</script>
+</body>
+</html>
+
+

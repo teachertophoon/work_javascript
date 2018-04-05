@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Insert title here</title>
+</head>
+<body>
+	<h2>클릭하면 사라집니다.</h2>
+	<h2>안녕하세요.</h2>
+
+	<script src="js/jquery-3.3.1.js"></script>
+	<script>
+		/*
+			$(document).ready 블럭안에 jQuery 코드를 작성하는 이유
+			jQuery가 완전히 로드 된 이후에 jQuery 관련 코드를 호출을 해야
+			문제없이 안전하게 실행하는 것을 보장하기 때문이다.
+		*/
+		$(document).ready(function() {
+			// 모든 h2 태그를 찾아서 click 이벤트가 발생할 경우 실행되는 함수 정의 
+			$("h2").click(function() {
+				// this는 클릭한 h2 태그를 의미하고 그 태그를 숨기는 hide 메소드 실행
+				$(this).hide();
+			});
+		});
+	</script>
+</body>
+</html>

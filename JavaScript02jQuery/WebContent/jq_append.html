@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Insert title here</title>
+</head>
+<body>
+	<p>I would like to say: </p>
+	<button id="button1">append()</button>
+	<button id="button2">prepend()</button>
+	<button id="button3">after()</button>
+	
+	<script src="js/jquery-3.3.1.js"></script>
+	<script>
+		$(document).ready(function() {
+			$("#button1").click(function() {
+				$("p").append("<b style='color:red'>Hello! </b>.");
+			});
+			
+			$("#button2").click(function() {
+				$("p").prepend("<b style='color:red'>Hello! </b>.");
+			});
+			
+			$("#button3").click(function() {
+				$("p").after("<b style='color:red'>Hello! </b>.");
+			});
+			
+		});
+	</script>
+</body>
+</html>

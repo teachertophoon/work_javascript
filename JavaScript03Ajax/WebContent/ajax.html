@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Insert title here</title>
+	<style>
+		#target {
+			width: 300px;
+			height: 60px;
+			border: solid 1px black;
+		}
+	</style>
+</head>
+<body>
+	<div id="target"></div>
+	<button type="button"></button>
+	
+	<script>
+		/*
+			이 예제는 JavaScript 코드를 이용하여 AJAX 통신을 하는 방법 입니다.
+		*/
+		
+		// target 버튼에 onclick 이벤트를 추가한다.
+		document.getElementById("target").onclick = function() {
+			// 버튼이 클릭되면 getFromServer() 함수를 실행한다.
+			getFromServer();
+		};
+		
+		function getFromServer() {
+			// XMLHttpRequest 객체를 담을 변수를 선언
+			var req;
+			
+			// 웹브라우저가 XMLHttpRequest 객체를 가지고 있다면
+			if (window.XMLHttpRequest) {
+				// XMLHttpRequest 객체를 생성하여 req 변수를 초기화
+				req = new XMLHttpRequest();
+			}
+			// 웹브라우저가 XMLHttpRequest 객체를 가지고 있지 않다면
+			else {
+				// ActiveX 객체로 된 XMLHTTP를 req 변수에 초기화 한다.
+				req = new ActiveXObject("Microsoft.XMLHTTP");
+			}
+			
+			/*
+				onreadystatechange 이벤트가 발생하면 실행할 함수를 작성한다.
+			*/
+			req.onreadystatechange = function() {
+				// 실행 순서를 확인하기 위해 console.log 작성
+				console.log("1");
+				
+				/*
+					readyState가 4이고 status 값이 200일 경우
+					서버로부터 전달받은 testfile1.txt 내용을
+					id가 target인 div 앨리먼트에 출력한다.
+					
+					readyState값이 4인 경우는
+					요청 처리가 종료되고 응답이 준비되었다는 뜻
+					(497페이지 상단의 표 참고)
+				
+					status는 응답코드를 뜻한다.
+					200번은 OK라는 뜻
+				*/
+				if (req.readyState == 4 && req.status == 200) {
+					document.getElementById("target").innerHTML = req.responseText;
+				}
+			};
+			
+			/*
+				HTTPMethod는 GET 방식, 요청하는 주소, 비동기 동작여부 순으로
+				파라미터 작성
+			*/
+			req.open("GET", "testfile1.txt", true);
+			
+			// 지금까지 req 변수에 작성한 내용을 가지고 서버로 전송한다.
+			req.send();
+			
+			// 실행 순서를 확인하기 위해 console.log를 작성
+			console.log("2");
+		}
+	</script>
+</body>
+</html>

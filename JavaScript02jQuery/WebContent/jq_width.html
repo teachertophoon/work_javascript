@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Insert title here</title>
+	<style>
+		div {
+			width: 70px;
+			height: 50px;
+			float: left;
+			margin: 5px;
+			background: red;
+		}
+		
+		.next {
+			background: blue;
+		}
+	</style>
+</head>
+<body>
+	<div>1</div>
+	<div>2</div>
+	<div>3</div>
+	<div>4</div>
+	<div>5</div>
+	
+	<script src="js/jquery-3.3.1.js"></script>
+	<script>
+		$(document).ready(function() {
+			// 초기 너비값에 대한 변수 선언 및 초기화
+			var modWidth = 50;
+			
+			// div 앨리먼트에 click 이벤트를 추가한다.
+			$("div").click(function() {
+				/*
+					this는 클릭한 div 앨리먼트 객체를 의미
+					클릭하면 너비를 modWidth 변수 값으로 설정한다.
+					그리고 next CSS class를 div 앨리먼트에 추가한다.
+				*/
+				$(this).width(modWidth).addClass("next");
+				
+				// 너비에 해당하는 변수 값을 8px만큼 줄인다.
+				modWidth -= 8;
+			});
+		});
+	</script>
+
+</body>
+</html>

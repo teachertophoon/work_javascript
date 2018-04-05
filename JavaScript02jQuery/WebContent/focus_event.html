@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Insert title here</title>
+	<style>
+		.my-text {
+			color: blue;
+			background-color: yellow;
+		}
+	</style>
+</head>
+<body>
+	<div>아이디: <input type="text" name="name"></div>
+	<p>동해물과 백두산이 마르고 닳도록</p>
+	
+	<script src="js/jquery-3.3.1.js"></script>
+	<script>
+		$(document).ready(function() {
+			// 포커스 된 상태일 경우 배경색을 노란색으로 변경
+			$("input").focus(function() {
+				$(this).css("background-color", "yellow");
+			});
+			
+			// 포커스가 빠지면 배경색을 흰색으로 변경
+			$("input").blur(function() {
+				$(this).css("background-color", "white");
+			});
+			
+			$("p").addClass("my-text");
+			$("p").removeClass("my-text");
+		});
+	</script>
+
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Insert title here</title>
+	<style>
+		body { background-color: #eef; }
+		div { padding: 20px; }
+	</style>
+</head>
+<body>
+	<div id="log"></div>
+
+	<script src="js/jquery-3.3.1.js"></script>
+	<script>
+		// Event 객체를 담고 있는 e 파라미터 변수
+		// http://api.jquery.com/category/events/event-object
+		$(document).mousemove(function(e) {
+			$("#log").text("e.pageX: " + e.pageX + ", e.pageY: " + e.pageY);
+		});
+	</script>
+</body>
+</html>

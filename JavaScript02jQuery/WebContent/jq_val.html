@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Insert title here</title>
+</head>
+<body>
+	<div>이름: <input type="text" id="target" value=""></div>
+	<button id="text">val()</button>
+	
+	<script src="js/jquery-3.3.1.js"></script>
+	<script>
+		$(document).ready(function() {
+			$("button").click(function() {
+				alert($("#target").val());
+			});
+		});
+	</script>
+</body>
+</html>
