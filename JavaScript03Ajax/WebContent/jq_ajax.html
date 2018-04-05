@@ -100,19 +100,15 @@
 				// Submit 기본 동작 사용하지 않기
 				event.preventDefault();
 				
-				// form 가져오기
-				var form = $('#formAddCar')[0];
-				
-				// FormData 객체 생성(form에 작성한 내용을 객체화)
-				var formData = new FormData(form);
+				// form 데이터 가져오기
+				var formData = $('#formAddCar').serializeArray();
 
+				// formData를 JSON으로 변경하기
 				var object = {};
-				formData.forEach(function(value, key) {
-				    object[key] = value;
-				});
-				
+				for (var i = 0; i < formData.length; i++) {
+					object[formData[i].name] = formData[i].value; 
+				}
 				var jsonData = JSON.stringify(object);
-				console.log(jsonData);
 				
 				/*
 					data: 서버로 전달할 데이터
