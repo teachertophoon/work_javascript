@@ -105,6 +105,14 @@
 				
 				// FormData 객체 생성(form에 작성한 내용을 객체화)
 				var formData = new FormData(form);
+
+				var object = {};
+				formData.forEach(function(value, key) {
+				    object[key] = value;
+				});
+				
+				var jsonData = JSON.stringify(object);
+				console.log(jsonData);
 				
 				/*
 					data: 서버로 전달할 데이터
@@ -112,10 +120,10 @@
 				*/
 				$.ajax({
 					type: 'post',
-					url: 'http://localhost:8080/Spring19Ajax/car',
-					data: formData,
+					url: 'http://localhost:8082/Spring19Ajax/car',
+					data: jsonData,
 					processData: false,
-					contentType: false,
+					contentType: 'application/json',
 					success: function(data, textStatus, xhr) {
 						alert("차량추가 성공");
 						console.log(JSON.stringify(data));
