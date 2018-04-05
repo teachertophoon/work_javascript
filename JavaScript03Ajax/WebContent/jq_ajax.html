@@ -15,6 +15,15 @@
 	<button id="button2">GET CAR</button>
 	<div id="carDetail"></div>
 	
+	<br>
+	
+	<div>차량 추가하기</div>
+	<form id="formAddCar" method="post">
+		<label>차량이름: <input type="text" id="name" name="name"></label><br>
+		<label>차량번호: <input type="text" id="number" name="number"></label><br>
+		<input type="submit" value="차량추가">
+	</form>
+	
 	<script src="js/jquery-3.3.1.js"></script>
 	<script>
 		$(document).ready(function() {
@@ -80,6 +89,41 @@
 					},
 					error: function(jqXHR, textStatus, errorThrown) {
 						alert("button2 실행에 대한 오류 발생");
+						console.log(JSON.stringify(jqXHR));
+						console.log(JSON.stringify(textStatus));
+						console.log(JSON.stringify(errorThrown));
+					}
+				});
+			});
+			
+			$("#formAddCar").submit(function(event) {
+				// Submit 기본 동작 사용하지 않기
+				event.preventDefault();
+				
+				// form 가져오기
+				var form = $('#formAddCar')[0];
+				
+				// FormData 객체 생성(form에 작성한 내용을 객체화)
+				var formData = new FormData(form);
+				
+				/*
+					data: 서버로 전달할 데이터
+					contentType: 서버로 전달하는 데이터의 타입
+				*/
+				$.ajax({
+					type: 'post',
+					url: 'http://localhost:8080/Spring19Ajax/car',
+					data: formData,
+					processData: false,
+					contentType: false,
+					success: function(data, textStatus, xhr) {
+						alert("차량추가 성공");
+						console.log(JSON.stringify(data));
+						console.log(JSON.stringify(textStatus));
+						console.log(JSON.stringify(xhr));
+					},
+					error: function(jqXHR, textStatus, errorThrown) {
+						alert("차량추가 실패");
 						console.log(JSON.stringify(jqXHR));
 						console.log(JSON.stringify(textStatus));
 						console.log(JSON.stringify(errorThrown));
