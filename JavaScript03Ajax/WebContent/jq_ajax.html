@@ -18,11 +18,26 @@
 	<br>
 	
 	<div>차량 추가하기</div>
-	<form id="formAddCar" method="post">
+	<form id="formAddCar">
 		<label>차량이름: <input type="text" id="name" name="name"></label><br>
 		<label>차량번호: <input type="text" id="number" name="number"></label><br>
 		<input type="submit" value="차량추가">
 	</form>
+	
+	<br>
+	
+	<div>차량 수정하기</div>
+	<form id="formModifyCar">
+		<label>차량이름: <input type="text" id="nameModify" name="name" readonly></label><br>
+		<label>차량번호: <input type="text" id="numberModify" name="number"></label><br>
+		<input type="submit" value="차량수정">
+	</form>
+	
+	<br>
+	
+	<div>삭제할 차량이름: <input type="text" id="deleteCarName"></div>
+	<button id="button3">DELETE CAR</button>
+	<div id="result"></div>
 	
 	<script src="js/jquery-3.3.1.js"></script>
 	<script>
@@ -86,6 +101,10 @@
 						console.log(JSON.stringify(data));
 						console.log(JSON.stringify(textStatus));
 						console.log(JSON.stringify(xhr));
+						
+						// 수정하기 form에 내용 채우기
+						$('#nameModify').val(data.name);
+						$('#numberModify').val(data.number);
 					},
 					error: function(jqXHR, textStatus, errorThrown) {
 						alert("button2 실행에 대한 오류 발생");
@@ -102,11 +121,12 @@
 				
 				// form 데이터 가져오기
 				var formData = $('#formAddCar').serializeArray();
+				console.log(JSON.stringify(formData));
 
 				// formData를 JSON으로 변경하기
 				var object = {};
 				for (var i = 0; i < formData.length; i++) {
-					object[formData[i].name] = formData[i].value; 
+					object[formData[i].name] = formData[i].value;
 				}
 				var jsonData = JSON.stringify(object);
 				
@@ -129,6 +149,61 @@
 					},
 					error: function(jqXHR, textStatus, errorThrown) {
 						alert("차량추가 실패");
+						console.log(JSON.stringify(jqXHR));
+						console.log(JSON.stringify(textStatus));
+						console.log(JSON.stringify(errorThrown));
+					}
+				});
+			});
+			
+			$("#formModifyCar").submit(function(event) {
+				// Submit 기본 동작 사용하지 않기
+				event.preventDefault();
+				
+				// form 데이터 가져오기
+				var formData = $('#formModifyCar').serializeArray();
+				
+				// formData를 JSON으로 변경하기
+				var object = {};
+				for (var i = 0; i < formData.length; i++) {
+					object[formData[i].name] = formData[i].value;
+				}
+				var jsonData = JSON.stringify(object);
+				
+				$.ajax({
+					type: 'put',
+					url: 'http://localhost:8080/Spring19Ajax/car',
+					data: jsonData,
+					processData: false,
+					contentType: 'application/json',
+					success: function(data, textStatus, xhr) {
+						alert(data.message);
+						console.log(JSON.stringify(data));
+						console.log(JSON.stringify(textStatus));
+						console.log(JSON.stringify(xhr));
+					},
+					error: function(jqXHR, textStatus, errorThrown) {
+						alert("오류 발생!!");
+						console.log(JSON.stringify(jqXHR));
+						console.log(JSON.stringify(textStatus));
+						console.log(JSON.stringify(errorThrown));
+					}
+				});
+			});
+			
+			$("#button3").click(function() {
+				$.ajax({
+					type: 'delete',
+					url: "http://localhost:8080/Spring19Ajax/car/" + $("#deleteCarName").val(),
+					dataType: 'json',
+					success: function(data, textStatus, xhr) {
+						$("#result").text(data.message);
+						console.log(JSON.stringify(data));
+						console.log(JSON.stringify(textStatus));
+						console.log(JSON.stringify(xhr));
+					},
+					error: function(jqXHR, textStatus, errorThrown) {
+						alert("오류 발생 !!");
 						console.log(JSON.stringify(jqXHR));
 						console.log(JSON.stringify(textStatus));
 						console.log(JSON.stringify(errorThrown));
