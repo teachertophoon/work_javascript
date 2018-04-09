@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, 
+		user-scalable=no, maximum-scale=1, minimum-scale=1">
+	<link rel="stylesheet" href="css/jquery.mobile-1.4.5.css">
+	<title>Page Title</title>
+</head>
+<body>
+	<div id="select_loc" data-role="page">
+		<div data-role="header" data-add-back-btn="true">
+			<h1>레스토랑 추천</h1>
+		</div>
+		
+		<div data-role="content">
+			<h1>지역을 선택하세요.</h1>
+			<ul data-role="listview" data-inset="true" data-filter="true">
+				<li>
+					<a href="choose_restaurant.html" data-transition="slidedown">
+						강남구 <span class="ui-li-count">3</span>
+					</a>
+				</li>
+				<li>
+					<a href="choose_restaurant.html" data-transition="slidedown">
+						종로구 <span class="ui-li-count">2</span>
+					</a>
+				</li>
+				<li>
+					<a href="choose_restaurant.html" data-transition="slidedown">
+						송파구 <span class="ui-li-count">1</span>
+					</a>
+				</li>
+				<li>
+					<a href="choose_restaurant.html" data-transition="slidedown">
+						마포구 <span class="ui-li-count">2</span>
+					</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+
+	<script src="js/jquery-1.12.4.js"></script>
+	<script src="js/jquery.mobile-1.4.5.js"></script>
+</body>
+</html>

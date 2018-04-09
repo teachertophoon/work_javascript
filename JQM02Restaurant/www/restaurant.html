@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, 
+		user-scalable=no, maximum-scale=1, minimum-scale=1">
+	<link rel="stylesheet" href="css/jquery.mobile-1.4.5.css">
+	<title>Page Title</title>
+</head>
+<body>
+	<div id="show_rest" data-role="page">
+		<div data-role="header" data-add-back-btn="true">
+			<h1>레스토랑 추천</h1>
+		</div>
+		
+		<div data-role="content">
+			<div class="ui-grid-a" id="restau_infos">
+				<div class="ui-block-a">
+					<h1>퍼 세이</h1>
+					<p><strong>강남에 있는 뉴욕 퍼세이 레스토랑</strong></p>
+					<p>메뉴:</p>
+					<ul>
+						<li>파스타</li>
+						<li>해물리조또</li>
+						<li>안심스테이크</li>
+					</ul>
+				</div>
+				<div class="ui-block-b">
+					<p>
+						<img src="img/rest01.jpg" alt="">
+					</p>
+					<p>
+						<a href="http://www.google.co.kr" rel="external" data-role="button">
+							웹사이트
+						</a>
+					</p>
+				</div>
+			</div>
+			<hr>
+			<div class="ui-grid-a" id="contact_infos">
+				<div class="ui-block-a">
+					<h2>주소</h2>
+					<p>서울 강남구 역삼동</p>
+					<p>120번지</p>
+				</div>
+				<div class="ui-block-b">
+					<img src="img/map01.jpg" alt="">
+				</div>
+			</div>
+			<div id="contact_buttons">
+				<a href="https://maps.google.co.kr/maps?q=%EC%84%9C%EC%9A%B8&ie=UTF8&hnear=Seoul&t=m&z=11" data-role="button" data-icon="maps">
+					구글맵에서 찾기
+				</a>
+				<a href="tel:021234567" data-role="button" data-icon="tel">전화번호</a>
+				<hr>
+				<div id="notation">
+					<form>
+						<label for="select-choice-0" class="select">
+							<h2>사용자 평가</h2>
+						</label>
+						<select name="note_utilsateur" id="note_utilsateur" data-native-menu="false">
+							<option value="one">추천할 수 없음</option>
+							<option value="two">보통</option>
+							<option value="three" selected>좋음</option>
+							<option value="four">아주 좋음</option>
+						</select>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script src="js/jquery-1.12.4.js"></script>
+	<script src="js/jquery.mobile-1.4.5.js"></script>
+</body>
+</html>
