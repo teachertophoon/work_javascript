@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+		<meta name="mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+	    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+		
+		<link rel="stylesheet" href="/css/fontawesome.min.css">
+		<link rel="stylesheet" href="/css/jquery.mobile.min.css">
+		<link rel="stylesheet" href="/css/waves.min.css">
+		<link rel="stylesheet" href="/css/animate.css">
+		<link rel="stylesheet" href="/css/nativedroid2.css">
+		<style>
+			/* Prevent FOUC */
+			body { opacity: 0; }
+		</style>
+		<title>jQuery Mobile NativeDroid</title>
+	</head>
+	<body>
+
+		<div data-role="page">
+
+			<nd2-include data-src="/examples/fragments/panel.left.html"></nd2-include>
+
+
+			<div data-role="header" data-position="fixed">
+				<a href="#leftpanel" class="ui-btn ui-btn-left"><i class="fa fa-bars"></i></a>
+				<h1>Products &amp; Services</h1>
+			</div>
+
+			<div role="main" class="ui-content" data-inset="false">
+
+				content here.
+
+			</div>
+
+		</div>
+
+		<script src="/js/jquery-1.12.4.min.js"></script>
+		<script src="/js/jquery-ui.min.js"></script>
+		<script src="/js/jquery.mobile-1.4.5.js"></script>
+		<script src="/js/waves.min.js"></script>
+		<script src="/js/wow.min.js"></script>
+		<script src="/js/nativedroid2.js"></script>
+		<script src="/js/nd2settings.js"></script>
+
+
+	</body>
+</html>
