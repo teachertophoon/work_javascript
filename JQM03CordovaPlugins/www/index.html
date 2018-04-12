@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Cordova 플러그인</title>
+</head>
+<body>
+	<!-- 배터리 상태 메시지 -->
+	<div id="batteryLevel"></div>
+	<div id="batteryPlugged"></div>
+	
+	<!-- 카메라 예제 -->
+	<div>
+		<button id="btnTakePic">사진찍기</button>
+	</div>
+	<div>
+		<img alt="카메라 이미지 영역" id="imgCamera">
+	</div>
+	
+	<!-- 진동 예제 -->
+	<div>
+		<button id="btnVibrate">진동 울리기</button>
+	</div>
+
+	<script src="js/jquery-1.12.4.js"></script>
+	<script src="cordova.js"></script>
+	<script>
+		function init() {
+			// Cordova의 deviceready 리스너 안에서만 Cordova 코드를 실행해야 한다.
+			document.addEventListener('deviceready', function() {
+
+				// 배터리 상태 예제
+				window.addEventListener('batterystatus', function(status) {
+					$('#batteryLevel').text('배터리 용량: ' + status.level + "%");
+					$('#batteryPlugged').text('케이블 연결: ' + status.isPlugged);
+				}, false);
+
+				// 카메라 예제
+				$('#btnTakePic').click(function(event) {
+					event.preventDefault();
+
+					navigator.camera.getPicture(function(imageData) {
+						$('#imgCamera').attr('src', imageData);
+					}, function(message) {
+						alert('camera: ' + message);
+					}, {
+						quality: 100,
+						destinationType: Camera.DestinationType.FILE_URI,
+						targetWidth: 300,
+						targetHeight: 300,
+						correctOrientation: true
+					});
+				});
+
+				// 진동 예제
+				$('#btnVibrate').click(function(event) {
+					event.preventDefault();
+					//navigator.vibrate(3000);	// ms 단위 3초간 진동
+					
+					// 1초 울리고 1초 쉬고 3초 울리고 0.5초 쉬고 5초 울리고
+					navigator.vibrate([1000, 1000, 3000, 500, 5000]);
+				});
+			});
+		}
+
+		init();
+	</script>
+</body>
+</html>

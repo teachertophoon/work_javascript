@@ -1,0 +1,20 @@
+{
+  "name": "com.koitt.cordova",
+  "version": "0.0.1",
+  "displayName": "Cordova Plugins",
+  "cordova": {
+    "platforms": [],
+    "plugins": {
+      "cordova-plugin-whitelist": {},
+      "cordova-plugin-battery-status": {},
+      "cordova-plugin-camera": {},
+      "cordova-plugin-vibration": {}
+    }
+  },
+  "dependencies": {
+    "cordova-plugin-battery-status": "^2.0.1",
+    "cordova-plugin-camera": "^4.0.2",
+    "cordova-plugin-vibration": "^3.0.1",
+    "cordova-plugin-whitelist": "^1.3.3"
+  }
+}
